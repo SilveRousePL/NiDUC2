@@ -1,10 +1,10 @@
 %KANAŁ
 function wynik = kanal(A,P)
-  prob = rand(1,100);
-  A(prob < P) = 5;
+  r = rand(1,length(A));
+  for i=1:1:length(A)
+    if r(i) < P
+      A(i) = ~A(i);
+    end
+  end
   wynik = A;
-  %for i=1 : 1 : length(A)
-    
-     
-  %end
 end
