@@ -1,21 +1,26 @@
-
-ilosc_bitow=10;
-
-% generator ciągu
-wygenerowane_bity=rand(1,ilosc_bitow);
-for i=0 : 1 : ilosc_bitow
-  wygenerowane_bity=round(wygenerowane_bity);
+% Autorzy:
+% Dariusz Tomaszewski, 235565
+% Justyna Skalska, 225942
+% Alicja Wróbel, 238894
+%TODO: Komentarze dla kanału, dekodera, bera, maina
+ilosc_pomiarow = 100;
+wektor_ber = zeros(0);
+for i=linspace(0,1,ilosc_pomiarow)
+  
+  wygenerowane_bity = generator(1000);
+  %disp(wygenerowane_bity);
+  
+  zakodowane_bity = koder(wygenerowane_bity);
+  %disp(zakodowane_bity);
+  
+  odebrane_bity = kanal(zakodowane_bity, i);
+  %disp(odebrane_bity);
+  
+  zdekodowane_bity = dekoder(odebrane_bity);
+  %disp(zdekodowane_bity);
+  
+  wektor_ber = [wektor_ber, ber(wygenerowane_bity, zdekodowane_bity)];
 end
-
-disp(wygenerowane_bity);
-
-% koder
-r=repmat(wygenerowane_bity,3,1); %potrajanie bitów
-r=r(:)'; %odczytuje elementy macierzy i zapisuje ją do wektora (' = transpose)
-disp(r);
-
-wyn = kanal(r, 0.1);
-disp(wyn);
-wyn = dekoder(wyn);
-
-disp(wyn);
+plot(linspace(0,1,ilosc_pomiarow), wektor_ber);
+xlabel("Prawdopodobieństwo błędu");
+ylabel("BER");
