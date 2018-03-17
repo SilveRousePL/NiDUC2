@@ -1,5 +1,5 @@
 %KODER
-function wynik = koder(A)
-  wynik=repmat(A,3,1); %Potrajanie bitów
-  wynik=wynik(:)'; %Odczytuje elementy macierzy i zapisuje ją do wektora (' = transpose)
+function wynik = koder(A) %A - wektor bitów
+  wynik=repmat(A,3,1); %Potrajanie bitów (forma macierzy)
+  wynik=wynik(:)'; %Odczytuje kolejno elementy macierzy i zapisuje je do wektora (' = transpose)
 end
