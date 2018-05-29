@@ -31,6 +31,7 @@ for i=linspace(0,1,ilosc_pomiarow)
 end
 
 plot(linspace(0,1,ilosc_pomiarow), wektor_ber); %Generowanie wykresu
-title (sprintf("Wykres dla %d pomiarów",ilosc_pomiarow)); 
+title(sprintf("Wykres dla %d pomiarów po %d bitów",ilosc_pomiarow,ilosc_bitow)); 
 xlabel("Prawdopodobieństwo błędu");
 ylabel("BER");
+grid on;

@@ -5,6 +5,7 @@ function wynik = dekoder(A) %A - wektor bitów potrojonych
   for i=1 : 1 : length(A)/3 %Dla każdej kolumny w macierzy "w" wykonaj:
     ilosc_zer = 0; %Wyzeruj stan
     ilosc_jedynek = 0; %Wyzeruj stan
+    
     for j=1 : 1 : 3 %W wybranej kolumnie macierzy zliczaj:
       if w(i,j) == 0 %Jeśli element = 0
         ilosc_zer++; %Policz kolejne zero
